@@ -2,6 +2,14 @@
     scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 body {
     font-family: 'Roboto';
 }
@@ -191,65 +199,7 @@ main:before {
         }
     }
 }   
-.card {
-    position: relative;
-    width: 350px;
-    height: 500px;
-    background: #fff;
-    box-shadow: 0 25px 50px rgba($color: #000000, $alpha: .15);
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    &__info {
-        padding: 20px;
-    }
-    &__image {
-        width: 350px;
-        height: 250px;
-        img {
-            object-fit: fill;
-            width: 100%;
-            height: 100%;
-        }
-    }
-    i {
-        position: absolute;
-        top: 40px;
-        left: -15px;
-        width: 280px;
-        height: 50px;
-        border-radius: 30px;
-        border-bottom-left-radius: 0px;
-        background-color: rgb(194 65 12);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &::after {
-            content: '';
-            position: absolute;
-            top: 50px;
-            width: 15px;
-            height: 30px;
-            left: 0px;
-            background: rgb(194 65 12);
-            z-index: 1;
-            border-bottom-left-radius: 20px;
-        }
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            width: 15px;
-            height: 30px;
-            left: 0px;
-            background: rgb(117, 40, 10);
-            z-index: 1;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            z-index: 2;
-        }
-    }
-}
+
 
 
 // Designing the skills page
@@ -376,8 +326,98 @@ main:before {
   }
 }
 
+.card__wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 30px 20px;
+  @media screen and (min-width:700px) {
+    flex-direction: row;
+  }
+  &__info {
+    background-color: white;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+  &__desc {
+    margin-top: 75px;
+  }
+  &__tags {
+    span {
+      margin-right: .3em;
+    }
+  }
+  &__links {
+    display: flex;
+    gap: 20px;
+    a:hover > svg {
+      color: rgb(194 65 12);
+    }
+  }
+  &__img {
+    height: 300px;
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
 .contact {
   &__box {
     color: white;
+  }
+}
+
+.card__title {
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  width: 280px;
+  height: 50px;
+  border-radius: 30px;
+  border-bottom-left-radius: 0px;
+  background-color: rgb(194 65 12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 15px;
+    height: 30px;
+    left: 0px;
+    background: rgb(194 65 12);
+    z-index: 1;
+    border-bottom-left-radius: 20px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 15px;
+    height: 30px;
+    left: 0px;
+    background: rgb(117, 40, 10);
+    z-index: 1;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 2;
   }
 }
